@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cool-Fit</title>
+  <link rel="stylesheet" href="../css/contact.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="../html/indext.html"><img src="../Afbeeldingen/logo.png" alt="Cool-Fit Logo" class="logo"></a>
+      </div>
+
+      <ul class="nav-center">
+        <li><a href="../html/indext.html">Home</a></li>
+        <li><a href="../html/overons.html">Over ons</a></li>
+        <li><a href="../html/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <h1>Neem contact op met Cool‑Fit</h1>
+        <p>Vragen over abonnementen, proeflessen of samenwerkingen? Stuur ons een bericht en we reageren binnen 1 werkdag.</p>
+      </div>
+    </section>
+
+    <section class="contact-content">
+      <div class="contact-row">
+
+        <div class="contact-card contact-form-card">
+          <h2>Stuur ons een bericht</h2>
+
+          <form id="contactForm"
+                action="https://formspree.io/f/xwvpgaok"
+                method="POST"
+                autocomplete="on"
+                novalidate>
+
+            <label class="visually-hidden" for="website">Laat dit leeg</label>
+            <input type="text" name="website" id="website" class="honeypot" autocomplete="off">
+
+            <label for="name">Naam</label>
+            <input id="name" name="name" type="text" required minlength="2" placeholder="Voornaam Achternaam">
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required placeholder="naam@voorbeeld.nl">
+
+            <label for="phone">Telefoonnummer</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="06 1234 5678">
+
+            <label for="subject">Onderwerp</label>
+            <input id="subject" name="subject" type="text" required placeholder="Waar gaat je bericht over">
+
+            <label for="message">Bericht</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Schrijf hier je vraag of opmerking"></textarea>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-submit">Verstuur</button>
+              <button type="reset" class="btn btn-reset">Reset</button>
+            </div>
+
+            <div id="formStatus" class="form-status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <aside class="contact-card contact-image-card">
+          <img src="../Afbeeldingen/gym_nu.jpg" alt="Interieur Cool‑Fit" class="contact-image">
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <img src="../Afbeeldingen/logo.png" alt="Cool-Fit Logo" class="footer-logo">
+    </div>
+
+    <div class="footer-bottom">
+      <div class="socials">
+        <a href=""><img src="../Afbeeldingen/whatsapp.png" alt="WhatsApp"></a>
+        <a href=""><img src="../Afbeeldingen/instagram.png" alt="Instagram"></a>
+        <a href=""><img src="../Afbeeldingen/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+    <p>&copy; 2026 Cool‑Fit. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (document.getElementById('website').value) {
+        status.textContent = 'Verzending geblokkeerd.';
+        status.className = 'form-status error';
+        return;
+      }
+
+      const data = new FormData(form);
+      const action = form.action;
+
+      status.textContent = 'Bezig met verzenden...';
+      status.className = 'form-status sending';
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.textContent = 'Bedankt! Je bericht is verzonden.';
+          status.className = 'form-status success';
+          form.reset();
+        } else {
+          const result = await response.json();
+          status.textContent = result.error || 'Er is iets misgegaan. Probeer later opnieuw.';
+          status.className = 'form-status error';
+        }
+      } catch (err) {
+        status.textContent = 'Kan geen verbinding maken. Controleer je internetverbinding.';
+        status.className = 'form-status error';
+      }
+    });
+  </script>
+</body>
+</html>

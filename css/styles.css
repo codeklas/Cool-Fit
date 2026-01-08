@@ -1,0 +1,276 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%
+}
+body{
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
+  color:#0b1220;
+  -webkit-font-smoothing:antialiased;
+}
+
+.site-header{
+  position:sticky;
+  top:0;z-index:60
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 36px;
+  background: #33ff00;
+  box-shadow: 0 6px 18px rgba(8,12,20,0.06);
+}
+
+.logo{height:52px}
+
+.nav-center{
+  display:flex;
+  gap:28px;
+  list-style:none;
+  align-items:center;
+  margin-left:24px;
+  flex:1;
+  justify-content:center;
+}
+
+.nav-center a{
+  text-decoration:none;
+  color:#0b1220;
+  background-color: #ff9900;
+  font-weight:600;
+  padding:10px 30px;
+  border-radius:60px;
+  transition:all .18s ease;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-tekst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.hero-tekst h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(36, 100%, 72%);
+  border-radius: 20px;
+  padding: 40px 70px;
+  margin: 80px 50px;
+  gap: 40px;
+}
+
+.intro-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.intro-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.intro-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(8,12,20,0.1);
+}
+
+.reviews {
+  padding: 80px 60px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.reviews-row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reviews h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.review-cards {
+  background: #fff;
+  padding: 72px;
+  border-radius: 22px;
+  box-shadow: 0 6px 18px rgba(8,12,20,0.06);
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.review-cards .name {
+  font-weight: 1000;
+  font-size: 20px;
+}
+
+.review-cards .bericht {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.abonnementen {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.abonnementen-row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: stretch; /* zorgt dat kaarten even hoog worden */
+}
+
+.abonnement-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(8,12,20,0.06);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  min-height: 30px;
+  box-sizing: border-box;
+}
+
+.abonnement-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.abonnement-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.abonnement-card .price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--groen);
+}
+
+.abonnement-card .btn-card {
+  text-decoration: none;
+  padding: 12px 0;
+  background: var(--groen);
+  color: #ff9900;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  display: inline-block;
+  width: 140px;
+  text-align: center;
+}
+
+.abonnement-card .btn-card:hover {
+  background: #28a745;
+}
+
+.footer {
+  background: #ff9900;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-logo {
+  height: 60px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+}
+
+.socials img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.socials img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
