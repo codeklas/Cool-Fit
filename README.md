@@ -1,2 +1,1 @@
-# Cool-Fit
-# Cool-Fit
+# School opdracht Cool-Fit
